@@ -1,6 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Github, Linkedin, Twitter, Instagram, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram, ArrowUpRight, Facebook } from "lucide-react";
 import logo from "@/assets/panoram-logo-mark.png";
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.96a8.24 8.24 0 004.82 1.55V7.07a4.85 4.85 0 01-1.05-.38z" />
+    </svg>
+  );
+}
 
 export function SiteFooter() {
   return (
@@ -18,8 +26,13 @@ export function SiteFooter() {
                 We engineer digital dominance. Cinematic websites, intelligent systems, and growth marketing for brands that refuse average.
               </p>
               <div className="mt-6 flex gap-3">
-                {[Twitter, Linkedin, Instagram, Github].map((Icon, i) => (
-                  <a key={i} href="#" className="group flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all hover:border-primary hover:bg-primary/10">
+                {[
+                  { Icon: Linkedin, href: "https://www.linkedin.com/company/panoram-digital-services/posts/?feedView=all" },
+                  { Icon: Instagram, href: "https://www.instagram.com/panoram_digital_services?igsh=YXBoY2hpZmU2dG14" },
+                  { Icon: Facebook, href: "https://www.facebook.com/panoramdigitalservices?mibextid=ZbWKwL" },
+                  { Icon: TikTokIcon, href: "https://www.tiktok.com/@panoram77?_r=1&_t=ZS-97HHtbz1i45" },
+                ].map(({ Icon, href }, i) => (
+                  <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="group flex h-10 w-10 items-center justify-center rounded-full border border-border transition-all hover:border-primary hover:bg-primary/10">
                     <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
                   </a>
                 ))}
@@ -29,7 +42,7 @@ export function SiteFooter() {
             <FooterCol title="Solutions" links={[
               { label: "Web Development", to: "/" },
               { label: "POS Systems", to: "/" },
-              { label: "Paid Ads", to: "/" },
+              { label: "Digital Marketing", to: "/" },
               { label: "AI Chatbots", to: "/" },
             ]} />
             <FooterCol title="Company" links={[
@@ -38,12 +51,12 @@ export function SiteFooter() {
               { label: "Blog", to: "/blog" },
               { label: "Book a Demo", to: "/contact" },
             ]} />
-            <FooterCol title="Coming Soon" links={[
+            {/* <FooterCol title="Coming Soon" links={[
               { label: "Cloud & DevOps", to: "/" },
               { label: "Mobile Apps", to: "/" },
               { label: "ERP Systems", to: "/" },
               { label: "AI Consulting", to: "/" },
-            ]} />
+            ]} /> */}
           </div>
 
           <div className="relative mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground font-mono uppercase tracking-wider">

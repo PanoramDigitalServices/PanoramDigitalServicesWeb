@@ -36,9 +36,9 @@ function Home() {
       <Hero />
       <About />
       <Services />
-      <Results />
+      {/* <Results /> */}
       <Portfolio />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FinalCta />
     </Layout>
   );
@@ -55,7 +55,7 @@ function Hero() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <section ref={ref} className="relative -mt-24 h-[110vh] w-full overflow-hidden">
+    <section ref={ref} className="relative -mt-24 h-[120vh] w-full overflow-hidden">
       {/* Moving grid w/ parallax */}
       <motion.div style={{ y: gridY, scale: gridScale }} className="absolute inset-0">
         <MovingGrid />
@@ -161,8 +161,8 @@ function Hero() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-muted-foreground"
       >
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-        <div className="h-10 w-px bg-gradient-to-b from-primary-glow to-transparent" />
+        {/* <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <div className="h-10 w-px bg-gradient-to-b from-primary-glow to-transparent" /> */}
       </motion.div>
     </section>
   );
@@ -236,10 +236,10 @@ const SERVICES = [
   { icon: ShoppingBag, title: "POS Systems", desc: "Smart point-of-sale that runs your floor and your data.", img: posImg },
   { icon: Megaphone, title: "Digital Marketing", desc: "Paid ads, creative & funnels engineered for compounding ROAS.", img: marketingImg },
   { icon: Bot, title: "AI Chatbots", desc: "Always-on conversational AI that qualifies and converts.", img: aiImg },
-  { icon: Cloud, title: "Cloud & DevOps", desc: "Resilient cloud infrastructure & DevOps pipelines.", img: cloudImg, soon: true },
-  { icon: Smartphone, title: "Mobile Apps", desc: "Native & cross-platform apps with cinematic motion.", img: mobileImg, soon: true },
+  // { icon: Cloud, title: "Cloud & DevOps", desc: "Resilient cloud infrastructure & DevOps pipelines.", img: cloudImg, soon: true },
+  // { icon: Smartphone, title: "Mobile Apps", desc: "Native & cross-platform apps with cinematic motion.", img: mobileImg, soon: true },
   { icon: Database, title: "ERP Systems", desc: "End-to-end enterprise systems unified into one source of truth.", img: cloudImg, soon: true },
-  { icon: Sparkles, title: "AI Consulting & ML", desc: "Advanced AI strategy and machine learning integrations.", img: aiImg, soon: true },
+  // { icon: Sparkles, title: "AI Consulting & ML", desc: "Advanced AI strategy and machine learning integrations.", img: aiImg, soon: true },
 ];
 
 function Services() {
@@ -260,11 +260,13 @@ function Services() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 flex flex-wrap justify-center gap-5">
           {SERVICES.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.05}>
-              <ServiceCard service={s} />
-            </Reveal>
+            <div key={s.title} className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.833rem)]">
+              <Reveal delay={i * 0.05}>
+                <ServiceCard service={s} />
+              </Reveal>
+            </div>
           ))}
         </div>
       </div>
@@ -292,9 +294,9 @@ function ServiceCard({ service }: { service: typeof SERVICES[number] }) {
         <div>
           <h3 className="font-display text-xl font-bold">{title}</h3>
           <p className="mt-2 text-sm text-foreground/70 leading-relaxed">{desc}</p>
-          <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-primary-glow opacity-0 -translate-x-2 transition-all duration-500 ease-cinematic group-hover:opacity-100 group-hover:translate-x-0">
+          {/* <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-primary-glow opacity-0 -translate-x-2 transition-all duration-500 ease-cinematic group-hover:opacity-100 group-hover:translate-x-0">
             Learn more <ArrowRight className="h-3 w-3" />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-glow to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -303,6 +305,7 @@ function ServiceCard({ service }: { service: typeof SERVICES[number] }) {
 }
 
 /* -------------------- RESULTS -------------------- */
+/* 
 function Results() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -352,14 +355,15 @@ function Results() {
     </section>
   );
 }
+*/
 
 /* -------------------- PORTFOLIO -------------------- */
 function Portfolio() {
   const items = [
-    { title: "Nova Retail", category: "POS + Web", img: posImg },
-    { title: "Helix Studio", category: "Brand + Web", img: webImg },
-    { title: "Atlas Growth", category: "Paid Ads", img: marketingImg },
-    { title: "Mira AI", category: "Chatbot + Web", img: aiImg },
+    { title: "Chrisentia", category: "Web", img: posImg },
+    { title: "Ceylon Eco Quest", category: "Brand + Web", img: webImg },
+    { title: "ThermalR", category: "Paid Ads", img: marketingImg },
+    // { title: "Mira AI", category: "Chatbot + Web", img: aiImg },
   ];
   return (
     <section id="portfolio" className="relative px-6 py-32">
@@ -372,22 +376,24 @@ function Portfolio() {
             Brands we've moved from <span className="text-gradient-brand">good to inevitable.</span>
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
+        <div className="mt-16 flex flex-wrap justify-center gap-6">
           {items.map((it, i) => (
-            <Reveal key={it.title} delay={i * 0.08}>
-              <div className="group relative h-[420px] overflow-hidden rounded-3xl shadow-elegant cursor-pointer">
-                <img src={it.img} alt={it.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-cinematic group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                <div className="absolute inset-0 bg-primary/0 transition-colors duration-700 group-hover:bg-primary/15" />
-                <div className="absolute inset-x-0 bottom-0 p-8">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary-glow">{it.category}</div>
-                  <h3 className="mt-2 font-display text-3xl font-bold">{it.title}</h3>
-                  <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold opacity-0 -translate-y-2 transition-all duration-500 ease-cinematic group-hover:opacity-100 group-hover:translate-y-0">
-                    View case study <ArrowRight className="h-4 w-4" />
+            <div key={it.title} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+              <Reveal delay={i * 0.08}>
+                <div className="group relative h-[420px] overflow-hidden rounded-3xl shadow-elegant cursor-pointer">
+                  <img src={it.img} alt={it.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-cinematic group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute inset-0 bg-primary/0 transition-colors duration-700 group-hover:bg-primary/15" />
+                  <div className="absolute inset-x-0 bottom-0 p-8">
+                    <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary-glow">{it.category}</div>
+                    <h3 className="mt-2 font-display text-3xl font-bold">{it.title}</h3>
+                    {/* <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold opacity-0 -translate-y-2 transition-all duration-500 ease-cinematic group-hover:opacity-100 group-hover:translate-y-0">
+                      View case study <ArrowRight className="h-4 w-4" />
+                    </div> */}
                   </div>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           ))}
         </div>
       </div>
@@ -396,6 +402,7 @@ function Portfolio() {
 }
 
 /* -------------------- TESTIMONIALS -------------------- */
+/* 
 function Testimonials() {
   const quotes = [
     { q: "Panoram rebuilt our entire funnel. ROAS went from 1.8x to 7.3x in 90 days.", who: "Sarah Chen", role: "CMO, Helix Studio" },
@@ -437,6 +444,7 @@ function Testimonials() {
     </section>
   );
 }
+*/
 
 /* -------------------- FINAL CTA -------------------- */
 function FinalCta() {
