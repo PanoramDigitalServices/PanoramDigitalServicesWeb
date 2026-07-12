@@ -39,9 +39,9 @@ function Contact() {
 
             <div className="mt-10 space-y-5">
               {[
-                { icon: Mail, label: "hello@panoram.digital" },
-                { icon: Phone, label: "+1 (415) 555-0142" },
-                { icon: MapPin, label: "Remote-first · HQ Colombo" },
+                { icon: Mail, label: "panoramdigitalservices@gmail.com" },
+                { icon: Phone, label: "+94789933466" },
+                // { icon: MapPin, label: "Remote-first · HQ Colombo" },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl glass">
