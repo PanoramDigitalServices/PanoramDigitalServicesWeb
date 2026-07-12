@@ -72,8 +72,8 @@ function Hero() {
         <OrbitalLogo src={logoMark} />
       </motion.div>
 
-      {/* Bottom fade into page */}
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+      {/* Bottom fade into page — uses CSS variable so it matches both dark and light background */}
+      <div className="absolute inset-x-0 bottom-0 h-48 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, var(--background))' }} />
 
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}

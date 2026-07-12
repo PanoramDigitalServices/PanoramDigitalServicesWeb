@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "@tanstack/react-router";
+﻿import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, Moon, Sun, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -10,8 +10,8 @@ const SOLUTIONS = [
   { name: "POS Systems", desc: "Smart point-of-sale tailored to your business.", to: "/solutions/pos" },
   { name: "Digital Marketing", desc: "Paid ads & growth engineered to scale.", to: "/solutions/marketing" },
   { name: "AI Chatbots", desc: "Conversational AI that converts 24/7.", to: "/solutions/ai" },
-  { name: "Cloud & DevOps", desc: "Coming soon — resilient cloud infrastructure.", to: "/solutions/cloud", soon: true },
-  { name: "Mobile App Development", desc: "Coming soon — native & cross-platform apps.", to: "/solutions/mobile", soon: true },
+  // { name: "Cloud & DevOps", desc: "Coming soon", to: "/solutions/cloud", soon: true },
+  // { name: "Mobile App Development", desc: "Coming soon", to: "/solutions/mobile", soon: true },
 ];
 
 export function SiteNav() {
@@ -46,9 +46,8 @@ export function SiteNav() {
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4"
     >
       <nav
-        className={`flex w-full max-w-7xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-500 ease-cinematic ${
-          scrolled ? "glass-strong shadow-elegant" : "glass"
-        }`}
+        className={`flex w-full max-w-7xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-500 ease-cinematic ${scrolled ? "glass-strong shadow-elegant" : "glass"
+          }`}
       >
         <Link to="/" className="flex items-center gap-2 group">
           <div className="relative h-9 w-9 overflow-hidden rounded-lg">
@@ -93,9 +92,9 @@ export function SiteNav() {
                       >
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-semibold">{s.name}</span>
-                          {s.soon && (
+                          {/* {s.soon && (
                             <span className="rounded-full bg-primary/15 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-primary-glow">soon</span>
-                          )}
+                          )} */}
                         </div>
                         <p className="mt-1 text-xs text-muted-foreground">{s.desc}</p>
                       </Link>
@@ -154,3 +153,5 @@ export function SiteNav() {
     </motion.header>
   );
 }
+
+
