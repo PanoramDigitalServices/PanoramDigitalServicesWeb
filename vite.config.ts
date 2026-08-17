@@ -14,9 +14,9 @@ export default defineConfig({
     spa: { enabled: true },
   },
   vite: {
-    base: "/PanoramDigitalServicesWeb/", 
+    base: "/",
     build: {
       outDir: "dist",
     },
-},
+  },
 });
