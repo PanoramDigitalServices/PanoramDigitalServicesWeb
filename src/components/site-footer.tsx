@@ -62,8 +62,8 @@ export function SiteFooter() {
           <div className="relative mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground font-mono uppercase tracking-wider">
             <div>© {new Date().getFullYear()} Panoram Digital Services. All rights reserved.</div>
             <div className="flex items-center gap-2">
-              <span>Built for cinematic ambition</span>
-              <ArrowUpRight className="h-3 w-3" />
+              {/* <span>Built for cinematic ambition</span> */}
+              {/* <ArrowUpRight className="h-3 w-3" /> */}
             </div>
           </div>
         </div>

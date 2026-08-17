@@ -17,6 +17,10 @@ import aiImg from "@/assets/service-ai.jpg";
 import cloudImg from "@/assets/service-cloud.jpg";
 import mobileImg from "@/assets/service-mobile.jpg";
 import logoMark from "@/assets/panoram-logo-mark.png";
+import projectCeqWeb from "@/assets/project-ceq-web.png";
+import projectChrisentiaWeb from "@/assets/project-chrisentia-web.png";
+import projectThermalRPaidAds from "@/assets/project-thermalR-paid-ads.jpeg";
+import projectTotalCareWeb from "@/assets/project-totalcare-web.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -207,7 +211,7 @@ function About() {
           </Reveal>
         </div>
 
-        <div className="relative h-[520px]">
+        <div className="relative h-[520px] hidden md:block">
           <Parallax speed={0.4}>
             <div className="absolute -right-6 top-0 h-[300px] w-[260px] rounded-2xl overflow-hidden shadow-elegant glow-ring">
               <img src={marketingImg} alt="Analytics" loading="lazy" className="h-full w-full object-cover animate-ken-burns" />
@@ -360,9 +364,10 @@ function Results() {
 /* -------------------- PORTFOLIO -------------------- */
 function Portfolio() {
   const items = [
-    { title: "Chrisentia", category: "Web", img: posImg },
-    { title: "Ceylon Eco Quest", category: "Brand + Web", img: webImg },
-    { title: "ThermalR", category: "Paid Ads", img: marketingImg },
+    { title: "Chrisentia", category: "Web", img: projectChrisentiaWeb },
+    { title: "Ceylon Eco Quest", category: "Brand + Web", img: projectCeqWeb },
+    { title: "ThermalR", category: "Paid Ads", img: projectThermalRPaidAds },
+    { title: "TotalCare", category: "Web", img: projectTotalCareWeb },
     // { title: "Mira AI", category: "Chatbot + Web", img: aiImg },
   ];
   return (
@@ -378,7 +383,7 @@ function Portfolio() {
         </Reveal>
         <div className="mt-16 flex flex-wrap justify-center gap-6">
           {items.map((it, i) => (
-            <div key={it.title} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+            <div key={it.title} className="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(50%-0.75rem)]">
               <Reveal delay={i * 0.08}>
                 <div className="group relative h-[420px] overflow-hidden rounded-3xl shadow-elegant cursor-pointer">
                   <img src={it.img} alt={it.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-cinematic group-hover:scale-110" />

@@ -36,7 +36,7 @@ function Community() {
             </p>
           </Reveal>
 
-          <div className="mt-16 grid gap-6 lg:grid-cols-3">
+          {/* <div className="mt-16 grid gap-6 lg:grid-cols-3">
             {[
               { icon: Users, title: "1,200+ Members", desc: "Founders, CMOs and senior operators across 18 countries." },
               { icon: MessageCircle, title: "Private Discussions", desc: "Daily strategy threads, playbooks and live AMAs with the Panoram team." },
@@ -52,9 +52,12 @@ function Community() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </div> */}
 
           <div className="mt-20 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-center">
+            <Reveal delay={0.15}>
+              <TiltImage src={aiImg} alt="Community" className="h-[360px] glow-ring" />
+            </Reveal>
             <Reveal>
               <div>
                 <h2 className="font-display text-[clamp(1.8rem,3.6vw,2.8rem)] font-bold leading-tight">
@@ -71,9 +74,7 @@ function Community() {
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={0.15}>
-              <TiltImage src={aiImg} alt="Community" className="h-[360px] glow-ring" />
-            </Reveal>
+
           </div>
         </div>
       </section>
